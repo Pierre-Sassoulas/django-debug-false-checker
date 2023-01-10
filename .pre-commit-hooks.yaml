@@ -1,0 +1,5 @@
+- id: django-debug-false-checker
+  name: django-debug-false-checker
+  entry: django-debug-false-checker
+  language: python
+  "types": [python]

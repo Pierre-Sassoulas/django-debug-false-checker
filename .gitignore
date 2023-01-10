@@ -1,0 +1,4 @@
+__pycache__/
+django_debug_false_checker.egg-info/
+dist/
+build/
