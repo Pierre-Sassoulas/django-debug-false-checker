@@ -10,7 +10,7 @@ setting by mistake.
 
 ```yaml
 - repo: https://github.com/Pierre-Sassoulas/django-debug-false-checker/
-  rev: v0.0.3
+  rev: v0.0.4
   hooks:
     - id: django-debug-false-checker
 ```

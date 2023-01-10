@@ -1,7 +1,7 @@
 github_url = "https://github.com/Pierre-Sassoulas/django-debug-false-checker"
 
 [version]
-current = "0.0.3"
+current = "0.0.4"
 regex = '''
 ^(?P<major>0|[1-9]\d*)
 \.
@@ -20,3 +20,6 @@ src = "README.md"
 
 [[file]]
 src = "setup.cfg"
+
+[[file]]
+src = ".pre-commit-config.yaml"
