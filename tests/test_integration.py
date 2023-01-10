@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Union
 from unittest.mock import patch
 
 import pytest
@@ -26,7 +27,7 @@ def test_integration_no_args() -> None:
     ],
 )
 def test_integration(
-    file_path: str, expected: str | None, capsys: CaptureFixture
+    file_path: str, expected: Union[str, None], capsys: CaptureFixture
 ) -> None:
     file_path = str(TEST_DIRECTORY / f"{file_path}.py")
     with patch("sys.argv", ["django-debug-false-checker", file_path]):
