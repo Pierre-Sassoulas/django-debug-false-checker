@@ -8,7 +8,7 @@ import pytest
 from _pytest.capture import CaptureFixture
 
 from django_debug_false_checker.__main__ import main
-from django_debug_false_checker._ast_check import _ast_check
+from django_debug_false_checker._regex_check import _regex_check
 
 TEST_DIRECTORY = Path(__file__).parent / "fixtures"
 
@@ -28,7 +28,7 @@ FIXTURE_FILES_PATHS = list(TEST_DIRECTORY.rglob("*.py"))
     [str(p) for p in FIXTURE_FILES_PATHS],
     ids=[str(p.relative_to(TEST_DIRECTORY)) for p in FIXTURE_FILES_PATHS],
 )
-@pytest.mark.parametrize("check_function", [_ast_check])
+@pytest.mark.parametrize("check_function", [_regex_check])
 def test_integration(
     file_path: str, check_function: Callable[[str, str], bool], capsys: CaptureFixture
 ) -> None:
