@@ -23,7 +23,7 @@ def main(
         try:
             with open(file_name, encoding="utf8") as f:
                 file_content = f.read()
-        except UnicodeDecodeError as e:
+        except UnicodeDecodeError as e:  # pragma: no cover
             logger.exception(e)
             continue
         if not check_function(file_name, file_content):
@@ -54,5 +54,5 @@ def _display_result(offending_files):
     sys.exit(0)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":  # pragma: no cover
     main()
