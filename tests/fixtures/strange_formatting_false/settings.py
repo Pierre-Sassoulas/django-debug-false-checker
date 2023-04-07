@@ -1,3 +1,3 @@
-DEBUG =       False
+DEBUG    =       False
 
 print("another node")
