@@ -38,16 +38,17 @@ def _test_file_path(
     check_function: Callable[[str, str], bool],
     capsys: CaptureFixture,
 ):
+    msg = f"when checking {file_path} with {check_function}."
     with patch("sys.argv", ["django-debug-false-checker", file_path]):
         with pytest.raises(SystemExit) as e:
             main(check_function=check_function)
         expected_code = 0 if expected is None else -1
-        assert e.value.code == expected_code
+        assert e.value.code == expected_code, f"Wrong result {msg}"
     out, err = capsys.readouterr()
     assert not out, f"Got {out} expected nothing"
-    msg = f"when checking {file_path} with {check_function}. stderr: {err}"
+
     if expected is not None:
-        assert expected in err, f"Didn't get the expected {expected} {msg}"
+        assert expected in err, f"Didn't get '{expected}' {msg} stderr: {err}"
     else:
-        assert not err, f"Got a false positive {msg}"
+        assert not err, f"Got a false positive {msg}  stderr: {err}"
     assert err.count(file_path) <= 1
