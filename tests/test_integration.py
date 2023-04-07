@@ -23,7 +23,7 @@ def test_integration_no_args() -> None:
 def test_integration(
     file_path: str, check_function: Callable[[str, str], bool], capsys: CaptureFixture
 ) -> None:
-    if any(x in file_path for x in ["not_real_settings_file.py"]):
+    if any(x in file_path for x in ["not_real_settings_file.py", "false/"]):
         expected = None
     else:
         expected = "Please change DEBUG to False"
@@ -42,14 +42,10 @@ def _test_file_path(
         expected_code = 0 if expected is None else -1
         assert e.value.code == expected_code
     out, err = capsys.readouterr()
-    assert not out
+    assert not out, f"Got {out} expected nothing"
+    msg = f"when checking {file_path} with {check_function}. stderr: {err}"
     if expected is not None:
-        assert expected in err, (
-            f"Didn't get the expected {expected} when "
-            f"checking {file_path} with {check_function}"
-        )
+        assert expected in err, f"Didn't get the expected {expected} {msg}"
     else:
-        assert (
-            not err
-        ), f"Got a false positive when checking {file_path} with {check_function}"
+        assert not err, f"Got a false positive {msg}"
     assert err.count(file_path) <= 1
