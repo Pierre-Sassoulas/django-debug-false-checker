@@ -5,14 +5,14 @@ import logging
 import sys
 from typing import Callable, List, Union
 
-from django_debug_false_checker._ast_check import _ast_checkers
+from django_debug_false_checker._ast_check import _ast_check
 
 logger = logging.getLogger(__name__)
 
 
 def main(
     argv: Union[List[str], None] = None,
-    check_function: Callable[[str, str], bool] = _ast_checkers,
+    check_function: Callable[[str, str], bool] = _ast_check,
 ) -> None:
     args = _parse_args(argv)
     offending_files: set[str] = set()
