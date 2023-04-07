@@ -1,9 +1,10 @@
 """Check that django DEBUG = True in settings.py. Used by pre-commit."""
+from __future__ import annotations
 
 import argparse
 import logging
 import sys
-from typing import Callable, List, Union
+from typing import Callable
 
 from django_debug_false_checker._ast_check import _ast_check
 
@@ -11,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 def main(
-    argv: Union[List[str], None] = None,
+    argv: list[str] | None = None,
     check_function: Callable[[str, str], bool] = _ast_check,
 ) -> None:
     args = _parse_args(argv)

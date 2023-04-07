@@ -1,5 +1,7 @@
+from __future__ import annotations
+
 from pathlib import Path
-from typing import Callable, Union
+from typing import Callable
 from unittest.mock import patch
 
 import pytest
@@ -32,7 +34,7 @@ def test_integration(
 
 def _test_file_path(
     file_path: str,
-    expected: Union[str, None],
+    expected: str | None,
     check_function: Callable[[str, str], bool],
     capsys: CaptureFixture,
 ):
