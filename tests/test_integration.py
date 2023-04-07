@@ -20,7 +20,14 @@ def test_integration_no_args() -> None:
     assert e.value.code == 0
 
 
-@pytest.mark.parametrize("file_path", [str(p) for p in TEST_DIRECTORY.rglob("*.py")])
+FIXTURE_FILES_PATHS = list(TEST_DIRECTORY.rglob("*.py"))
+
+
+@pytest.mark.parametrize(
+    "file_path",
+    [str(p) for p in FIXTURE_FILES_PATHS],
+    ids=[str(p.relative_to(TEST_DIRECTORY)) for p in FIXTURE_FILES_PATHS],
+)
 @pytest.mark.parametrize("check_function", [_ast_check])
 def test_integration(
     file_path: str, check_function: Callable[[str, str], bool], capsys: CaptureFixture
