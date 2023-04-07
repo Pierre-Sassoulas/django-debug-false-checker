@@ -25,7 +25,7 @@ def test_integration_no_args() -> None:
 def test_integration(
     file_path: str, check_function: Callable[[str, str], bool], capsys: CaptureFixture
 ) -> None:
-    if any(x in file_path for x in ["not_real_settings_file.py", "false/"]):
+    if any(x in file_path for x in ["not_real_settings_file.py", "_false"]):
         expected = None
     else:
         expected = "Please change DEBUG to False"
