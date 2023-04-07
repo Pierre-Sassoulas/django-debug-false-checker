@@ -1,3 +1,3 @@
-DEBUG, Other = True, "42"
+Other, DEBUG = "42", True
 
 print("another node")
