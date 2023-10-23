@@ -3,7 +3,7 @@ ci:
 
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.1.0"
+    rev: "v0.1.1"
     hooks:
       - id: ruff
         exclude: tests/fixture
@@ -14,7 +14,7 @@ repos:
       - id: django-debug-false-checker
         exclude: tests/
   - repo: https://github.com/psf/black
-    rev: 23.9.1
+    rev: 23.10.1
     hooks:
       - id: black
         exclude: tests/fixture
@@ -31,7 +31,7 @@ repos:
         exclude: tests/fixture
         args: [--py37-plus]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.6.0
+    rev: v1.6.1
     hooks:
       - id: mypy
         entry: mypy
