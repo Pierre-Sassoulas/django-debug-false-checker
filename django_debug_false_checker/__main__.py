@@ -1,4 +1,5 @@
 """Check that django DEBUG = True in settings.py. Used by pre-commit."""
+
 from __future__ import annotations
 
 import argparse
