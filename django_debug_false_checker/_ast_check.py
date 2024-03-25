@@ -2,8 +2,7 @@ import ast
 from typing import Any
 
 
-class DebugTrueDetected(Exception):
-    ...
+class DebugTrueDetected(Exception): ...
 
 
 class DebugTrueDetector(ast.NodeVisitor):
