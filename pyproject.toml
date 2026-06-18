@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+authors = [{name = "Pierre Sassoulas", email = "pierre.sassoulas@gmail.com"}]
+name = "django-debug-false-checker"
+version = "0.0.4"
+description = "Check that you're not changing the django DEBUG's setting by mistake."
+classifiers = [
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Development Status :: 5 - Production/Stable",
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.urls]
+Homepage = "https://github.com/Pierre-Sassoulas/django-debug-false-checker/"
+
+[project.optional-dependencies]
+test = [
+    "pytest-cov",
+    "pytest-vcr",
+    "coverage",
+    "python-coveralls",
+    "coveralls",
+    "pylint~=3.2.3",
+    "pre-commit",
+    "tbump",
+    "setuptools",
+]
+
+[project.scripts]
+django-debug-false-checker = "django_debug_false_checker.__main__:main"
+
+[tool.setuptools]
+packages = ["django_debug_false_checker"]
+include-package-data = false
