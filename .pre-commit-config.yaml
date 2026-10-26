@@ -3,7 +3,7 @@ ci:
 
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.15.17"
+    rev: "v0.17.2"
     hooks:
       - id: ruff
         exclude: tests/fixture
@@ -14,7 +14,7 @@ repos:
       - id: django-debug-false-checker
         exclude: tests/
   - repo: https://github.com/psf/black-pre-commit-mirror
-    rev: 26.5.1
+    rev: 26.10.1
     hooks:
       - id: black
         exclude: tests/fixture
@@ -25,13 +25,13 @@ repos:
       - id: prettier
         args: [--prose-wrap=always, --print-width=88]
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.21.2
+    rev: v3.22.0
     hooks:
       - id: pyupgrade
         exclude: tests/fixture
         args: [--py37-plus]
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v2.1.0
+    rev: v2.4.0
     hooks:
       - id: mypy
         entry: mypy
